@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Pet</title>
+</head>
+<body>
+    <h1>Add New Pet</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Pet</button>
+    </form>
+    <a href="{% url 'pet-list' %}">Back to List</a>
+</body>
+</html>

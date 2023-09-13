@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Pet Details</title>
+</head>
+<body>
+    <h1>Pet Details</h1>
+    <h2>{{ pet.PetType }} - {{ pet.PetBreed }}</h2>
+    <ul>
+        <li>Policy: {{ pet.Policy }}</li>
+        <li>Policy Start Date: {{ pet.PolicyStartDate }}</li>
+        <li>Policy End Date: {{ pet.PolicyEndDate }}</li>
+    </ul>
+    <a href="{% url 'pet-list' %}">Back to List</a>
+</body>
+</html>

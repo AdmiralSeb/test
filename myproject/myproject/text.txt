@@ -1,0 +1,106 @@
+---- Install ODBC Driver
+
+sudo su
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+exit
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -y msodbcsql17
+
+pip install django
+pip install mssql-django
+pip install djangorestframework
+
+
+python manage.py makemigrations
+python manage.py migrate
+
+python manage.py test myapp.test_api
+
+
+Step 1: Set Up Your Development Environment
+
+Install Python: If you haven't already, install Python on your local machine. You can download it from the official Python website.
+
+Install Django: Install Django using pip, the Python package manager, by running the following command:
+
+Copy code
+pip install django
+Install Azure CLI: Install the Azure Command-Line Interface (CLI) for managing Azure resources from your local environment. You can download it from the Azure CLI website.
+
+Step 2: Create a Django Project
+
+Create a Django project using the following command:
+
+Copy code
+django-admin startproject myproject
+Navigate to the project directory:
+
+bash
+Copy code
+cd myproject
+Step 3: Create Django Apps
+
+Create Django apps for your project. For example, you can create apps for managing pets and products:
+
+Copy code
+python manage.py startapp myapp
+Configure the apps in your project's settings.py file by adding them to the INSTALLED_APPS list.
+
+Step 4: Set Up Databases
+
+Configure a PostgreSQL Database:
+
+Install PostgreSQL on your local machine and set up a database.
+Update your project's settings.py to use PostgreSQL as the database backend by specifying database connection settings (e.g., DATABASES).
+Configure Cosmos DB:
+
+Create a Cosmos DB account in the Azure portal.
+Obtain the Cosmos DB connection string.
+Update your project's settings.py to use Cosmos DB as the NoSQL database backend by specifying the Cosmos DB connection string and settings.
+Step 5: Create Models
+
+Define your database models in your Django apps' models.py files. For example, create models for PetInfo, PetHealth, and Product.
+
+Run Django database migrations to create the database schema:
+
+Copy code
+python manage.py makemigrations
+python manage.py migrate
+Step 6: Create Views, URLs, and Templates
+
+Create views for your Django apps to handle user requests. For example, create views for adding pets, viewing pet details, and managing products.
+
+Define URLs in your app's urls.py to route requests to the appropriate views.
+
+Create HTML templates in your app's templates directory for rendering user interfaces.
+
+Step 7: Implement Business Logic
+
+Implement the logic for adding, editing, and deleting pet records, recording pet health data, and managing product listings.
+Step 8: Implement User Authentication (Optional)
+
+Implement user authentication using Django's built-in authentication system or third-party packages like Django Allauth.
+Step 9: Set Up Azure Services
+
+Deploy to Azure Web App:
+
+Create an Azure Web App service in the Azure portal.
+Configure deployment settings (e.g., from your Git repository or Azure DevOps).
+Configure Azure Cosmos DB:
+
+Set up the Cosmos DB instance with the required settings and regions.
+Update the connection string and settings in your Django project.
+Step 10: Deploy Your Application
+
+Push your code to your chosen deployment method (e.g., Git repository, Azure DevOps, or FTP) to deploy your Django application to the Azure Web App.
+Step 11: Test and Monitor
+
+Test your application thoroughly to ensure it functions as expected.
+
+Monitor your application's performance and usage using Azure monitoring tools.
+
+Step 12: Maintenance and Updates
+
+Regularly update and maintain your Django application to address bugs, add new features, and improve security.
+By following these steps, you can create a Django web application integrated with both PostgreSQL and Cosmos DB, hosted within the Azure ecosystem. This setup allows you to leverage the power of Azure services for scalability, reliability, and global reach while using Django to build your application.
